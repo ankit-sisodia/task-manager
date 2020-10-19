@@ -31,6 +31,7 @@ export class TasksComponent implements OnInit {
         }
       });
       if (typeof value === 'string') {
+        this.items = {high: [], medium: [], low: []};
         this.tasksService.tasks
           .filter(task => task.title.toLowerCase().includes(value.toLowerCase())).map(task => {
           if (task.priority >= 1 && task.priority <= 3) {
