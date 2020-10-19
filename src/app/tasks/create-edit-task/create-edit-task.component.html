@@ -1,0 +1,34 @@
+<div mat-dialog-title>Task details</div>
+<form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+  <mat-dialog-content ngClass="task-form-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Todo:</mat-label>
+      <input [readonly]="readMode" formControlName="title" matInput type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Priority:</mat-label>
+      <input [readonly]="readMode" formControlName="priority" matInput min="0" type="number">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Due date:</mat-label>
+      <input [disabled]="readMode" [matDatepicker]="picker" formControlName="dueDate" matInput>
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Assigned to:</mat-label>
+      <mat-select [disabled]="readMode" formControlName="assignedTo">
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{user.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions *ngIf="!readMode" align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit">Submit</button>
+  </mat-dialog-actions>
+  <mat-dialog-actions *ngIf="readMode" align="end">
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</form>

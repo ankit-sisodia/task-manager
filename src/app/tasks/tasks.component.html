@@ -1,0 +1,43 @@
+<div ngClass="tasks-wrapper">
+  <button (click)="createTask()" [disabled]="createLoading" mat-raised-button ngClass="create-btn">Create New Task
+  </button>
+  <div *ngIf="loading; else tasksEl" ngClass="tasks-loading">Loading Tasks...</div>
+  <ng-template #tasksEl>
+    <div [ngClass]="'priority-wrapper'">
+      <div #highList="cdkDropList"
+           (cdkDropListDropped)="drop($event)"
+           [cdkDropListConnectedTo]="[mediumList, lowList]"
+           [cdkDropListData]="items.high"
+           [ngClass]="'priority-container'"
+           cdkDropList
+           class="high-list"
+           data-attr="1">
+        <mat-label [ngClass]="'priority-label'">High Priority</mat-label>
+        <app-task *ngFor="let item of items['high']" [cdkDragData]="item" [item]="item" cdkDrag></app-task>
+      </div>
+      <div #mediumList="cdkDropList"
+           (cdkDropListDropped)="drop($event)"
+           [cdkDropListConnectedTo]="[highList, lowList]"
+           [cdkDropListData]="items.medium"
+           [ngClass]="'priority-container'"
+           cdkDropList
+           class="medium-list"
+           data-attr="4">
+        <mat-label [ngClass]="'priority-label'">Medium Priority</mat-label>
+        <app-task *ngFor="let item of items['medium']" [cdkDragData]="item" [item]="item" cdkDrag></app-task>
+      </div>
+      <div #lowList="cdkDropList"
+           (cdkDropListDropped)="drop($event)"
+           [cdkDropListConnectedTo]="[highList, mediumList]"
+           [cdkDropListData]="items.low"
+           [ngClass]="'priority-container'"
+           cdkDropList
+           class="low-list"
+           data-attr="7">
+        <mat-label [ngClass]="'priority-label'">Low Priority</mat-label>
+        <app-task *ngFor="let item of items['low']" [cdkDragData]="item" [item]="item" cdkDrag></app-task>
+      </div>
+    </div>
+  </ng-template>
+  <div *ngIf="createLoading" ngClass="create-task-loading tasks-loading">Creating new task...</div>
+</div>

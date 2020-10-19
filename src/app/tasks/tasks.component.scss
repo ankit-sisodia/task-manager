@@ -1,0 +1,41 @@
+.tasks-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: calc(100% - 60px);
+  overflow: auto;
+}
+
+.priority-wrapper {
+  display: flex;
+}
+
+.priority-label {
+  margin: 15px;
+}
+
+.create-btn {
+  margin: 25px 0 15px 0;
+  background-color: #368940d1;
+  position: relative;
+  left: 40vw;
+  padding: 5px 50px;
+  color: #fff;
+  font-family: inherit;
+}
+
+.tasks-loading {
+  text-align: center;
+  padding: 20px;
+  font-weight: bolder;
+  font-size: 14px;
+  background-color: #ccc;
+  color: #4e4e4e;
+  width: 200px;
+  margin: 20px auto;
+}
+
+.create-task-loading {
+  width: 50vw;
+}

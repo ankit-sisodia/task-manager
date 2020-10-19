@@ -1,0 +1,35 @@
+.header-container {
+  height: 60px;
+  background-color: #2e3328;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 0 20px;
+  position: relative;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+
+  &:focus, &:hover, &:active {
+    outline: none;
+  }
+}
+
+.search-container {
+  width: 280px;
+  height: 32px;
+  padding-left: 30px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 305px;
+  color: #aaa;
+  top: 20px;
+}

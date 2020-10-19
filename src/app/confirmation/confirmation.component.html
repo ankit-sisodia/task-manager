@@ -1,0 +1,8 @@
+<div mat-dialog-title>Delete Confirmation:</div>
+<mat-dialog-content ngClass="task-form-container">
+  <div>Are you sure you want to delete task '{{title}}'</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button (click)="onClose(true)" mat-button>Yes, Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,6 @@
+<div [ngClass]="'header-container'">
+  <span [ngClass]="'header-title'" routerLink="/">Task Manager</span>
+  <mat-icon ngClass="search-icon">search</mat-icon>
+  <input (input)="searchHandler($event)" [ngClass]="'search-container'" mat-input placeholder="Search task..."
+         type="text"/>
+</div>

@@ -1,0 +1,26 @@
+.task-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #4a4d46;
+  color: #fff;
+  width: 25vw;
+  margin: 10px;
+  font-size: 16px;
+  box-shadow: 1px 2px 2px #4e4e4e;
+  cursor: pointer;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 20%;
+  max-width: 100px;
+
+  .action {
+    cursor: pointer;
+  }
+}
+
+

@@ -1,0 +1,11 @@
+<mat-card (click)="taskDetails(item)" [ngClass]="'task-container'">
+  <div *ngIf="loading; else tasksEl">Loading...</div>
+  <ng-template #tasksEl>
+    <span>{{item.title}}</span>
+    <span [ngClass]="'actions-container'">
+      <mat-icon (click)="editTask(item)" [ngClass]="'action'">edit</mat-icon>
+      <mat-icon (click)="deleteTask(item.id)" [ngClass]="'action'">delete</mat-icon>
+    </span>
+  </ng-template>
+</mat-card>
+
